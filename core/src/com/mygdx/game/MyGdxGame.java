@@ -22,6 +22,7 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void create () {
+		Gdx.input.setInputProcessor(new MyInputProcessor());
 		sb = new SpriteBatch();
 		cam = new OrthographicCamera();
 		cam.setToOrtho(false, V_WIDTH, V_HEIGHT);
@@ -46,6 +47,7 @@ public class MyGdxGame extends ApplicationAdapter {
 			accum -= STEP;
 			gsm.update(STEP);
 			gsm.render();
+			MyInput.update();
 		}
 	}
 	
